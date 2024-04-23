@@ -1,16 +1,16 @@
 require 'pg'
 
-# Specifica i dettagli per la connessione al database predefinito (ad esempio 'postgres')
+
 conn = PG.connect(dbname: 'postgres', user: 'postgres', password: 'minardi99')
 
-# Crea un nuovo database chiamato 'eramus'
+
 conn.exec("CREATE DATABASE eramus")
 conn.close
 
-# Connetti al nuovo database appena creato
+
 conn = PG.connect(dbname: 'eramus', user: 'postgres', password: 'minardi99')
 
-# Crea una nuova tabella chiamata 'my_table' nel database 'eramus'
+# Crea la tabella Utente
 conn.exec("CREATE TABLE Utente (
   id SERIAL PRIMARY KEY,
   username VARCHAR(255),
@@ -18,6 +18,21 @@ conn.exec("CREATE TABLE Utente (
   name VARCHAR(255),
   surname VARCHAR(255),
   date_of_birth DATE
+)")
+
+# Crea la tabella Prodotto
+conn.exec("CREATE TABLE Prodotto (
+  id SERIAL PRIMARY KEY,
+  object_name VARCHAR(255),
+  description TEXT,
+  insertion_date DATE,
+  product_type VARCHAR(255)
+)")
+
+# Crea la tabella Tipo_prodotto
+conn.exec("CREATE TABLE Tipo_prodotto (
+  id SERIAL PRIMARY KEY,
+  type VARCHAR(255)
 )")
 
 conn.close
