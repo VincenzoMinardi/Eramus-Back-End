@@ -10,22 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_24_082904) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_24_083617) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "prodotto", id: :serial, force: :cascade do |t|
+  create_table "prodotti", id: :serial, force: :cascade do |t|
     t.string "object_name", limit: 255
     t.text "description"
     t.date "insertion_date"
     t.string "product_type", limit: 255
   end
 
-  create_table "tipo_prodotto", id: :serial, force: :cascade do |t|
+  create_table "prodottos", force: :cascade do |t|
+    t.string "object_name"
+    t.text "description"
+    t.date "insertion_date"
+    t.string "product_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipo_prodotti", id: :serial, force: :cascade do |t|
     t.string "type", limit: 255
   end
 
-  create_table "utente", id: :serial, force: :cascade do |t|
+  create_table "tipo_prodottos", force: :cascade do |t|
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "utentes", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "name"
+    t.string "surname"
+    t.date "date_of_birth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "utenti", id: :serial, force: :cascade do |t|
     t.string "username", limit: 255
     t.string "password", limit: 255
     t.string "name", limit: 255
