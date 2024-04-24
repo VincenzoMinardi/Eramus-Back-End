@@ -1,33 +1,13 @@
-# Creazione di un nuovo prodotto
-prodotto1 = Prodotto.new(
-  object_name: 'Smartphone',
-  description: 'Un telefono intelligente',
-  insertion_date: Date.today,
-  product_type: 'Elettronica'
-)
-
-
-prodotto1.save
-
-# Creazione di un altro prodotto
-prodotto2 = Prodotto.new(
-  object_name: 'Portatile',
-  description: 'Un computer portatile',
-  insertion_date: Date.today,
-  product_type: 'Elettronica'
-)
-
-
-prodotto2.save
-
-prodotto3 = Prodotto.new(
-  object_name: 'Felpa',
-  description: 'Felpa con cappuccio',
-  insertion_date: Date.today,
-  product_type: 'Abbigliamento'
-)
-
+# app/models/prodotto.rb
 
 class Prodotto < ApplicationRecord
-  belongs_to :tipo_prodotto
+  attribute :object_name, :string
+  attribute :description, :text
+  attribute :insertion_date, :date
+  attribute :product_type, :integer
+
+  validates :object_name, presence: true
+  validates :description, presence: true
+  validates :insertion_date, presence: true
+  validates :product_type, presence: true
 end

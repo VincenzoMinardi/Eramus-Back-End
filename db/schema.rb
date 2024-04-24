@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_24_083617) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_24_085257) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_083617) do
     t.text "description"
     t.date "insertion_date"
     t.string "product_type", limit: 255
+    t.bigint "tipo_prodotto_id", null: false
+    t.index ["tipo_prodotto_id"], name: "index_prodotti_on_tipo_prodotto_id"
   end
 
   create_table "prodottos", force: :cascade do |t|
@@ -58,4 +60,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_083617) do
     t.date "date_of_birth"
   end
 
+  add_foreign_key "prodotti", "tipo_prodottos"
 end
