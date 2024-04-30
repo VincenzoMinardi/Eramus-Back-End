@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_085257) do
   end
 
   create_table "tipo_prodottos", force: :cascade do |t|
-    t.string "type"
+    t.string "product_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_085257) do
   create_table "utentes", force: :cascade do |t|
     t.string "username"
     t.string "password"
+    t.string "email"
     t.string "name"
     t.string "surname"
     t.date "date_of_birth"
