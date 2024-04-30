@@ -10,12 +10,6 @@
 
 # seeds.rb
 
-# seeds.rb
-
-# seeds.rb
-
-# seeds.rb
-
 # Utenti
 Utente.create(
   username: 'Mario_Rossi',
