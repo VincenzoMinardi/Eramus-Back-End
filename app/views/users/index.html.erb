@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <!-- Altri campi che vuoi mostrare -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <!-- Altri campi -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
